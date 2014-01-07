@@ -1,15 +1,15 @@
 # TODO: Print the elements at indices 1, 3, 5, 7, etc. on separate lines.
 #       You should make use of Enumerable#each_with_index
-def print_odd_indexed_integers(array)
-  array.each_with_index do |number, index|
+def print_odd_indexed_integers(sorted_slicesay)
+  sorted_slicesay.each_with_index do |number, index|
     puts number if index.odd?
   end
 end
 
 # TODO: Return the odd numbers from a list of integers.
 #       You should make use of Enumerable#select
-def odd_integers(array)
-  array.select {|number| number.odd?}
+def odd_integers(sorted_slicesay)
+  sorted_slicesay.select {|number| number.odd?}
 end
 
 # TODO: Return the first number from an Array that is less than a particular number - 'limit.'
@@ -21,16 +21,26 @@ end
 # TODO: Take an Array of Strings and return a new Array with an exclamation point appended to each String.
 #       You should make use of Enumerable#map
 def add_bang(array)
+  array.map do |string|
+    string + "!"
+  end
 end
 
 # TODO: Calculate the sum of an Array of numbers.
 #       You should make use of Enumerable#reduce
 def sum(array)
+  array.reduce(:+)
 end
 
 # TODO: Reorganize an Array of the elements into groups of 3, and then sort each group alphabetically.
 #       You should make use of Enumerable#each_slice
 def sorted_triples(array)
+  sorted_slices = []
+  array.each_slice(3) do |slice|
+    slice.sort!
+    sorted_slices << slice
+  end
+   return sorted_slices
 end
 
 # Driver code... don't change this.
@@ -40,10 +50,10 @@ puts odd_integers([3, 4, 7, 9, 10, 16]) == [3, 7, 9]
 
 puts first_under([13, 21, 7, 0, 11, 106], 10) == 7
 
-# puts add_bang(["hi", "mom"]) == ["hi!", "mom!"]
+puts add_bang(["hi", "mom"]) == ["hi!", "mom!"]
 
-# puts sum([1, 1, 2, 3, 5]) == 12
+puts sum([1, 1, 2, 3, 5]) == 12
 
-# words = %w(the salted pork is particularly good)
-# puts sorted_triples(words) == [["pork", "salted", "the"],
-#                                ["good", "is", "particularly"]]
+words = %w(the salted pork is particularly good)
+puts sorted_triples(words) == [["pork", "salted", "the"],
+                               ["good", "is", "particularly"]]
