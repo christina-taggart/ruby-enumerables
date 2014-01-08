@@ -33,16 +33,21 @@ end
 # TODO: Take an Array of Strings and return a new Array with an exclamation point appended to each String.
 #       You should make use of Enumerable#map
 def add_bang(array)
+    array.map do |string|
+      string << "!"
+    end
 end
 
 # TODO: Calculate the sum of an Array of numbers.
 #       You should make use of Enumerable#reduce
 def sum(array)
+  array.reduce(:+)
 end
 
 # TODO: Reorganize an Array of the elements into groups of 3, and then sort each group alphabetically.
 #       You should make use of Enumerable#each_slice
 def sorted_triples(array)
+
 end
 
 # Driver code... don't change this.
@@ -52,10 +57,10 @@ puts odd_integers([3, 4, 7, 9, 10, 16]) == [3, 7, 9]
 
 puts first_under([13, 21, 7, 0, 11, 106], 10) == 7
 
-# puts add_bang(["hi", "mom"]) == ["hi!", "mom!"]
+puts add_bang(["hi", "mom"]) == ["hi!", "mom!"]
 
-# puts sum([1, 1, 2, 3, 5]) == 12
+puts sum([1, 1, 2, 3, 5]) == 12
 
-# words = %w(the salted pork is particularly good)
-# puts sorted_triples(words) == [["pork", "salted", "the"],
-#                                ["good", "is", "particularly"]]
+ words = %w(the salted pork is particularly good)
+puts sorted_triples(words) == [["pork", "salted", "the"],
+                               ["good", "is", "particularly"]]
