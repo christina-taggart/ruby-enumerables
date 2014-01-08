@@ -27,11 +27,13 @@ end
 # TODO: Calculate the sum of an Array of numbers.
 #       You should make use of Enumerable#reduce
 def sum(array)
+  array.reduce(:+)
 end
 
 # TODO: Reorganize an Array of the elements into groups of 3, and then sort each group alphabetically.
 #       You should make use of Enumerable#each_slice
 def sorted_triples(array)
+  array.each_slice(3){|x| x.sort}.join
 end
 
 # Driver code... don't change this.
