@@ -47,7 +47,11 @@ end
 # TODO: Reorganize an Array of the elements into groups of 3, and then sort each group alphabetically.
 #       You should make use of Enumerable#each_slice
 def sorted_triples(array)
-
+alpha = []
+    array.each_slice(3) do |word|
+     alpha << word.sort
+    ends
+return alpha
 end
 
 # Driver code... don't change this.
